@@ -1,0 +1,13 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <h4 class='text-center'><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h5>
+  <div class='text-right'>
+    <%= link_to "New Review", new_user_review_path(@user) %>
+  </div>
+  <ul class="list-group">
+    <% @user.reviews.each do |r| %>
+      <li class="list-group-item">
+        <%= r.rating %>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<div style="background-image:url(<%= image_path 'ladies.jpg' %>);height:300px; width:100%;">
+  <div class='jumbotron'>
+    <div class="container">
+      <h1>Landlord</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <br>
+      <%= link_to 'Add Landlord', signup_path, class:"btn btn-lg btn-primary" %>
+    </div>
+    
+    <% @landlords.each do |l| %>
+      <div class="col-xs-12">
+        <h5><%= link_to l.full_name, l %></h5> - <span class='text-muted'><%= l.reviews.average(:rating).round if l.reviews.present? %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
